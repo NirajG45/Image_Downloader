@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Downloader</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f2f2f2;
+            padding: 40px;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #28a745;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 400px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🖼️ Image Downloader</h1>
+    <form method="post">
+        <input type="text" name="image_url" placeholder="Paste image URL here..." required>
+        <button type="submit">Download</button>
+    </form>
+
+    {% if file %}
+        <h2>Downloaded Image:</h2>
+        <img src="{{ url_for('static', filename='downloads/' + file) }}" alt="Downloaded Image">
+    {% endif %}
+</body>
+</html>
